@@ -1,0 +1,40 @@
+prepare:
+  fetch:
+  - url: "https://raw.githubusercontent.com/bbatsov/rubocop/master/config/enabled.yml"
+    path: ".rubocop.yml"
+  - url: "https://raw.githubusercontent.com/codeclimate/community-styleguide/master/JavaScript/Angular/.eslintrc"
+    path: ".eslintrc"
+engines:
+  rubocop:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - ruby
+  coffeelint:
+    enabled: true
+  eslint:
+    enabled: true
+    channel: "eslint-3"
+  csslint:
+    enabled: false
+  bundler-audit:
+    enabled: true
+  checkstyle:
+    enabled: true
+    channel: "beta"
+    # enables Google style guide by default
+ratings:
+  paths:
+  - "**.rb"
+  - "**.coffee"
+  - "**.js"
+  - "**.jsx"
+  - "**.css"
+  - Gemfile.lock
+exclude_paths:
+- config/**/*
+- db/**/*
+- spec/**/*
+- vendor/**/*
